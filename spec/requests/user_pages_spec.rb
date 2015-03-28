@@ -29,6 +29,15 @@ describe "Пользовательские страницы" do
 			it "должен создать пользователя" do
 				expect { click_button submit }.to change(User, :count).by(1)
 			end
+
+			describe "после сохранения пользователя" do
+		        before { click_button submit }
+		        let(:user) { User.find_by(email: 'user@example.com') }
+
+		        it { should have_link('Выход') }
+		        it { should have_title(user.name) }
+		        it { should have_selector('div.alert.alert-success', text: 'Добро пожаловать') }
+      		end
 		end
   	end
 
