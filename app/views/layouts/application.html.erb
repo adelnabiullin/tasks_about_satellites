@@ -13,8 +13,8 @@
 	    	<div class="row-fluid">
 	    		<div class="span2"></div>
 	    		<div class="span10">
-	    		<% flash.each do |key, value| %>
-	        		<div class="alert alert-<%= key %>"><%= value %></div>
+	    			<% flash.each do |key, value| %>
+	    				<%= content_tag(:div, value, class: "alert alert-#{key}") %>
 	      			<% end %>
 		  			<%= yield %>
 		  		</div>
