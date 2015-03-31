@@ -1,9 +1,13 @@
-<div class="center hero-unit">
-	<h1>Добро пожаловать в мир Задач о Спутниках</h1>
+<% if signed_in? %>
+	<% controller.redirect_to current_user %>
+<% else %>
+	<div class="center hero-unit">
+		<h1>Добро пожаловать в мир Задач о Спутниках</h1>
 
-	<h2>
-		Это стартовая страница данного веб-приложения.
-	</h2>
+		<h2>
+			Это стартовая страница данного веб-приложения.
+		</h2>
 
-	<%= link_to "Зарегистрируйтесь!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+		<%= link_to "Зарегистрируйтесь!", signup_path, class: "btn btn-large btn-primary" %>
+	</div>
+<% end %>

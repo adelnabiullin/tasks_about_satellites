@@ -1,10 +1,11 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
-    <div class="container">
+    <div class="container-fluid">
       <%= link_to "Мир Спутников", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Главная", root_path %></li>
+          <li><%= link_to "Новости", news_path %></li>
           <li><%= link_to "Помощь", help_path %></li>
           <% if signed_in? %>
             <li><%= link_to "Пользователи", users_path %></li>
