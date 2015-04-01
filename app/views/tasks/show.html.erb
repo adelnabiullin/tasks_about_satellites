@@ -1,3 +1,8 @@
-<% provide(:title, 'Задача #{current_task.id}') %>
+<% provide(:title, @task.name) %>
 
-<h1>Задача <%= current_task.id %></h1>
+<h1>Задача <%= @task.id %></h1>
+<div class="row">
+	<div class="span6 offset3">
+		<%= @task.content %>
+	</div>
+</div>

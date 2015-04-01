@@ -1,6 +1,6 @@
 module SessionsHelper
 
-	def sign_in(user)
+    def sign_in(user)
 	    remember_token = User.new_remember_token
 	    cookies.permanent[:remember_token] = remember_token
 	    user.update_attribute(:remember_token, User.encrypt(remember_token))
@@ -38,4 +38,22 @@ module SessionsHelper
     def store_location
       session[:return_to] = request.url if request.get?
     end
+
+    # Before filters
+
+      def correct_user
+        @user = User.find(params[:id])
+        redirect_to(root_url) unless current_user?(@user)
+      end
+
+      def admin_user
+        redirect_to(root_url) unless current_user.admin?
+      end
+      
+      def signed_in_user
+        unless signed_in?
+          store_location
+          redirect_to signin_url, notice: "Пожалуйста, войдите в систему."
+        end
+      end
 end

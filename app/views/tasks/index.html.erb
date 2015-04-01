@@ -1,0 +1,11 @@
+<% provide(:title, 'Задачи') %>
+<h1>Список задач</h1>
+
+<%= link_to("Добавить", builder_path, class: "btn") if current_user.admin? %>
+<%= will_paginate %>
+
+<ul class="users">
+	<%= render @tasks %>
+</ul>
+
+<%= will_paginate %>

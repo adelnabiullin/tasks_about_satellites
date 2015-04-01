@@ -1,0 +1,7 @@
+<li>
+	<%= "Задача #{task.id}. " %>
+  	<%= link_to task.name, task %>
+  	<% if current_user.admin? %>
+    	| <%= link_to "удалить", task, method: :delete, data: { confirm: "Вы уверены?" } %>
+  	<% end %>
+</li>
