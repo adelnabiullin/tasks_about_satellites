@@ -9,4 +9,9 @@ FactoryGirl.define do
 	    	admin true
 	    end
 	end
+
+	factory :task do
+		sequence(:name) { |n| "Task number #{n}" }
+		sequence(:content) { |n| "Lorem ipsum #{n} content." }
+	end
 end
