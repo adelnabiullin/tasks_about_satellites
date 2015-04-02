@@ -4,8 +4,19 @@
 <%= link_to("Добавить", builder_path, class: "btn") if current_user.admin? %>
 <%= will_paginate %>
 
-<ul class="users">
+<!-- <ul class="users">
 	<%= render @tasks %>
-</ul>
+</ul> -->
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Номер</th>
+			<th>Название</th>
+		</tr>
+	</thead>
+	<tbody>
+			<%= render @tasks %>
+	</tbody>
+</table>
 
 <%= will_paginate %>

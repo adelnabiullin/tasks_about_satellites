@@ -1,8 +1,18 @@
 <% provide(:title, @task.name) %>
 
-<h1>Задача <%= @task.id %></h1>
 <div class="row">
-	<div class="span6 offset3">
+	<div class="span3">
+		<br>
+		<%= link_to "Изменить", edit_task_path(@task), class: "btn" if current_user.admin? %>
+		<%= link_to "Удалить", @task, method: :delete, class: "btn btn-inverse", data: { confirm: "Вы уверены?" } if current_user.admin? %>
+	</div>
+	<div class="span3 offset6">
+		<h1>Задача <%= @task.id %></h1>
+	</div>
+	<div class="span6">
+		<h3><%= @task.name %></h3>
+	</div>
+	<div class="span12">
 		<%= @task.content %>
 	</div>
 </div>
