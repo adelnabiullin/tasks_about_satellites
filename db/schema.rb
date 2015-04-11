@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401144912) do
+ActiveRecord::Schema.define(version: 20150411131725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "solutions", force: true do |t|
+    t.string   "attachment"
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "solutions", ["task_id"], name: "index_solutions_on_task_id", using: :btree
+  add_index "solutions", ["user_id", "task_id"], name: "index_solutions_on_user_id_and_task_id", using: :btree
+  add_index "solutions", ["user_id"], name: "index_solutions_on_user_id", using: :btree
 
   create_table "tasks", force: true do |t|
     t.string   "name"
@@ -31,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150401144912) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           default: false
+    t.integer  "solutions_count", default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

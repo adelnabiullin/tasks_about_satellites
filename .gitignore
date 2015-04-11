@@ -24,3 +24,5 @@ doc/
 .DS_Store
 .idea
 .secret
+.sublime-namespace
+.sublime-workspace

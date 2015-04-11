@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe Task do
-	before { @task = Task.new(name: "Megasatellites", content: "Lorem ipsum") }
+  before { @task = Task.new(name: "Megasatellites", content: "Lorem ipsum") }
 
-	subject { @task }
+  subject { @task }
 
-	it { should respond_to(:name) }
-	it { should respond_to(:content) }
+  it { should respond_to(:name) }
+  it { should respond_to(:content) }
 end

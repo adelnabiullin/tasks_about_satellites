@@ -2,6 +2,7 @@ TasksAboutSatellites::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :tasks
+  resources :solutions, only: [:create, :destroy, :show, :index]
 
   root 'static_pages#home'
 
