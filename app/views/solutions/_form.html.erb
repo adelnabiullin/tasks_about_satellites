@@ -1,0 +1,7 @@
+<%= form_for @solution, html: { class: 'form-horizontal', multipart: true } do |f| %>
+  <legend>Нашли решение? Спешите сюда.</legend>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.hidden_field :task_id %>
+  <%= f.file_field :attachment, class: "file-input" %>
+  <%= f.submit "Отправить", class: "btn btn-primary" %>
+<% end %>

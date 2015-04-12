@@ -17,18 +17,7 @@
       <%= @task.content %>
     </p>
   </div>
-  <div class="span7">
-    <br>
-    <form class="form-horizontal">
-      <fieldset>
-        <legend>Нашли решение? Спешите сюда.</legend>
-        <div class="control-group">
-          <label class="control-label" for="fileInput">Файл:</label>
-          <div class="controls">
-            <%= render 'shared/solution_form' %>
-          </div>
-        </div>
-      </fieldset>
-    </form>
+  <div class="span7 offset1">
+    <%= render 'solutions/form' %>
   </div>
 </div>
