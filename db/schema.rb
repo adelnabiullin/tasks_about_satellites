@@ -13,10 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150411131725) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "solutions", force: true do |t|
+  create_table "solutions", force: :cascade do |t|
     t.string   "attachment"
     t.integer  "user_id"
     t.integer  "task_id"
@@ -24,18 +21,18 @@ ActiveRecord::Schema.define(version: 20150411131725) do
     t.datetime "updated_at"
   end
 
-  add_index "solutions", ["task_id"], name: "index_solutions_on_task_id", using: :btree
-  add_index "solutions", ["user_id", "task_id"], name: "index_solutions_on_user_id_and_task_id", using: :btree
-  add_index "solutions", ["user_id"], name: "index_solutions_on_user_id", using: :btree
+  add_index "solutions", ["task_id"], name: "index_solutions_on_task_id"
+  add_index "solutions", ["user_id", "task_id"], name: "index_solutions_on_user_id_and_task_id"
+  add_index "solutions", ["user_id"], name: "index_solutions_on_user_id"
 
-  create_table "tasks", force: true do |t|
+  create_table "tasks", force: :cascade do |t|
     t.string   "name"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"
@@ -46,7 +43,7 @@ ActiveRecord::Schema.define(version: 20150411131725) do
     t.integer  "solutions_count", default: 0
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

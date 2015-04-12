@@ -6,7 +6,7 @@ class SolutionsController < ApplicationController
     if @solution.save
       flash[:success] = "Решение удачно загружено!"
     end
-    render task_path([:id])
+    redirect_to task_path(@solution.task)
   end
 
   def destroy
@@ -16,6 +16,6 @@ class SolutionsController < ApplicationController
   private
 
   def solution_params
-    params.require(:solution).permit(:attachment)
+    params.require(:solution).permit(:task_id, :attachment)
   end
 end
