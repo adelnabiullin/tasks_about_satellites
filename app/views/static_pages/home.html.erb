@@ -1,13 +1,11 @@
 <% if signed_in? %>
-	<% controller.redirect_to current_user %>
+  <% controller.redirect_to current_user %>
 <% else %>
-	<div class="center hero-unit">
-		<h1>Добро пожаловать в мир Задач о Спутниках</h1>
-
-		<h2>
-			Это стартовая страница данного веб-приложения.
-		</h2>
-
-		<%= link_to "Зарегистрируйтесь!", signup_path, class: "btn btn-large btn-primary" %>
-	</div>
+  <div class="center hero-unit">
+    <h1>Добро пожаловать!</h1>
+    <h2>
+      Сей познавательный ресурс позволит вам проверить свои навыки и знания, соревнуясь в решении задач с другими пользователями
+    </h2>
+    <%= link_to "Зарегистрируйтесь!", signup_path, class: "btn btn-large btn-primary" %>
+  </div>
 <% end %>

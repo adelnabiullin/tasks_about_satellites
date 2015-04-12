@@ -1,22 +1,16 @@
 <% provide(:title, 'Задачи') %>
 <h1>Список задач</h1>
-
 <%= link_to("Добавить", builder_path, class: "btn") if current_user.admin? %>
 <%= will_paginate %>
-
-<!-- <ul class="users">
-	<%= render @tasks %>
-</ul> -->
 <table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Номер</th>
-			<th>Название</th>
-		</tr>
-	</thead>
-	<tbody>
-			<%= render @tasks %>
-	</tbody>
+  <thead>
+    <tr>
+      <th>Номер</th>
+      <th>Название</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @tasks %>
+  </tbody>
 </table>
-
 <%= will_paginate %>
