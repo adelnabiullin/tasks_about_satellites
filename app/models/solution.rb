@@ -4,4 +4,8 @@ class Solution < ActiveRecord::Base
   default_scope -> { order('created_at DESC') }
 
   mount_uploader :attachment, AttachmentUploader
+
+  validates :user_id, presence: true
+  validates :task_id, presence: true
+  validates_presence_of :attachment
 end

@@ -2,7 +2,8 @@ TasksAboutSatellites::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :tasks
-  resources :solutions, only: [:create, :destroy, :show, :index]
+  resources :solutions, path: "tasks/:id", as: :solutions, only: :create
+  resources :solutions, only: [:destroy, :show, :index]
 
   root 'static_pages#home'
 
@@ -13,7 +14,7 @@ TasksAboutSatellites::Application.routes.draw do
   match '/signup', to: 'users#new', via: 'get'
 
   match '/builder', to: 'tasks#new', via: 'get'
-  
+
   match '/signin',  to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
 

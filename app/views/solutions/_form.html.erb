@@ -3,5 +3,11 @@
   <%= render 'shared/error_messages', object: f.object %>
   <%= f.hidden_field :task_id %>
   <%= f.file_field :attachment, class: "file-input" %>
+  <% if f.object.errors.empty? %>
+    <br>
+  <% end %>
   <%= f.submit "Отправить", class: "btn btn-primary" %>
+  <% if f.object.errors.any? %>
+    <%= link_to "Отмена", @solution.task, class: "btn btn-inverse" %>
+  <% end %>
 <% end %>

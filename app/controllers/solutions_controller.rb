@@ -3,14 +3,17 @@ class SolutionsController < ApplicationController
 
   def create
     @solution  = current_user.solutions.build(solution_params)
+    @task = @solution.task
     if @solution.save
       flash[:success] = "Решение удачно загружено!"
       # redirect_to @solution
       # ..compile
       # ..tests
       # ..etc
+      redirect_to task_path(@solution.task)
+    else
+      render 'tasks/show'
     end
-    redirect_to task_path(@solution.task)
   end
 
   def destroy

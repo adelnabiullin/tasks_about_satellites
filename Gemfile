@@ -13,6 +13,7 @@ gem 'paperclip', '~> 4.2'
 gem 'carrierwave', '0.10.0'
 gem 'rmagick', '2.14.0'
 gem 'htmlbeautifier', '1.1.0'
+gem 'rails-i18n', '~> 4.0.0'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
