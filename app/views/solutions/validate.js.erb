@@ -14,14 +14,12 @@ function validateFiles(inputFile) {
     if ($.inArray(extName, allowedExtension) == -1) {extError=true;};
   });
   if (sizeExceeded) {
-    //window.alert(maxExceededMessage);
-    <% errors[:solution] << maxExceededMessage %>
+    window.alert(maxExceededMessage);
     $(inputFile).val('');
   };
   
   if (extError) {
-    //window.alert(extErrorMessage);
-    <% errors[:solution] << extErrorMessage %>
+    window.alert(extErrorMessage);
     $(inputFile).val('');
   };
 }

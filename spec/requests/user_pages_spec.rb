@@ -113,7 +113,7 @@ describe "Пользовательские страницы" do
     describe "с невалидной информацией" do
       before { click_button "Сохранить изменения" }
 
-      it { should have_content('error') }
+      it { should have_content('ошиб') }
     end
 
     describe "with valid information" do

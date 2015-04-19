@@ -24,5 +24,6 @@ doc/
 .DS_Store
 .idea
 .secret
-.sublime-namespace
-.sublime-workspace
+*.sublime-namespace
+*.sublime-workspace
+/uploads

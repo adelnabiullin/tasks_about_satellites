@@ -1,0 +1,13 @@
+<% provide(:title, "Решение №#{@solution.id}") %>
+<div class="row">
+  <div class="span12">
+    <h3>
+      Исходный код решения №<%= @solution.id %> задачи №<%= @solution.task_id %>
+    </h3>
+  </div>
+  <div class="span9">
+    <pre class="brush: java; toolbar: false;">
+      <%= File.read("public/uploads/solution/attachment/#{@solution.id}/sol.java") %>
+    </pre>
+  </div>
+</div>

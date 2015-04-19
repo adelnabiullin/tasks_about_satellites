@@ -3,7 +3,7 @@ TasksAboutSatellites::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :tasks
   resources :solutions, path: "tasks/:id", as: :solutions, only: :create
-  resources :solutions, only: [:destroy, :show, :index]
+  resources :solutions, only: [:show, :index]
 
   root 'static_pages#home'
 

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Task do
-  before { @task = Task.new(name: "Megasatellites", content: "Lorem ipsum") }
+  before { @task = FactoryGirl.create(:task) }
 
   subject { @task }
 

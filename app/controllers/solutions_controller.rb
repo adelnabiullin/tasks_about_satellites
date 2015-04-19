@@ -1,22 +1,26 @@
 class SolutionsController < ApplicationController
-  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :signed_in_user
+  # before_action :correct_user_for_solution, only: [:show, :index]
 
   def create
     @solution  = current_user.solutions.build(solution_params)
     @task = @solution.task
     if @solution.save
       flash[:success] = "Решение удачно загружено!"
-      # redirect_to @solution
       # ..compile
       # ..tests
       # ..etc
-      redirect_to task_path(@solution.task)
+      redirect_to @solution
     else
       render 'tasks/show'
     end
   end
 
-  def destroy
+  def show
+    @solution = Solution.find(params[:id])
+  end
+
+  def index
 
   end
 

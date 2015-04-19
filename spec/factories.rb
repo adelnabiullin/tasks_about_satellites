@@ -11,4 +11,15 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :task do
+    sequence(:name) { |n| "Task #{n}" }
+    sequence(:content) { |n| "Lorem ipsum #{n} dolor amet." }
+  end
+
+  factory :solution do
+    association :user_id, factory: :user
+    association :task_id, factory: :task
+    attachment { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'fixtures', 'solutions', 'right.java')) }
+  end
 end
