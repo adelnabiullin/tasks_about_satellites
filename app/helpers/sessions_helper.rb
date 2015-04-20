@@ -56,4 +56,13 @@ module SessionsHelper
       redirect_to signin_url, notice: "Пожалуйста, войдите в систему."
     end
   end
+
+  def correct_user_for_solution
+    @solution = Solution.find(params[:id])
+    @user = User.find(@solution.user_id)
+    unless current_user?(@user)
+      redirect_to current_user
+      flash[:error] =  "Вы можете просматривать лишь свои решения."
+    end
+  end
 end

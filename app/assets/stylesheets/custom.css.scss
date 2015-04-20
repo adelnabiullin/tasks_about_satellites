@@ -266,3 +266,18 @@ legend {
 p {
   text-indent: 40px;
 }
+
+/* solutions */
+
+.compile-result {
+  margin-top: 2px;
+  padding-top: 2px;
+  border-top: 1px solid $grayMediumLight;
+  @include box_sizing;
+}
+
+.pre-tag {
+  word-wrap: break-word;
+  // background-color: #3A1B56 !important;
+  color: #3A1B56;
+}

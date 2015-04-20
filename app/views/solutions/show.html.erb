@@ -6,8 +6,10 @@
     </h3>
   </div>
   <div class="span9">
-    <pre class="brush: java; toolbar: false;">
-      <%= File.read("public/uploads/solution/attachment/#{@solution.id}/sol.java") %>
-    </pre>
+    <pre class="brush: java; toolbar: false;"><%= File.read("public/uploads/solution/attachment/#{@solution.id}/sol.java") %></pre>
+  </div>
+  <div class="span9 compile-result">
+    <legend>Ошибки компиляции:</legend>
+    <pre class="pre-tag"><%= File.read("public/uploads/solution/attachment/#{@solution.id}/compile.txt") %></pre>
   </div>
 </div>
