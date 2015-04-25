@@ -26,4 +26,5 @@ doc/
 .secret
 *.sublime-namespace
 *.sublime-workspace
+*.sublime-project
 /uploads

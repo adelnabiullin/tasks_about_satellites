@@ -5,12 +5,16 @@ class SolutionsController < ApplicationController
   before_action :correct_user_for_solution, only: :show
 
   def create
-    @solution  = current_user.solutions.build(solution_params)
+    @solution = current_user.solutions.build(solution_params)
     @task = @solution.task
     if @solution.save
-      flash[:success] = "Решение удачно загружено!"
       compile_java
-      # ..tests
+      if File.read("public/uploads/solution/attachment/#{@solution.id}/compile.log").blank?
+        flash[:success] = "Компиляция прошла успешно :)"
+        # ..tests
+      else
+        flash[:notice] = "Взгляните на ошибки компиляции под исходным кодом."
+      end
       # ..etc
       redirect_to @solution
     else
@@ -36,5 +40,11 @@ class SolutionsController < ApplicationController
     sh = Shell.new
     sh.cd("#{sh.dir}/public/uploads/solution/attachment/#{@solution.id}/")
     sh.system("javac", "-Xdiags:verbose", "-Xstdout", "compile.log", "sol.java")
+    sh1 = Shell.new
+    sh1.system("bash", "public/javac_check_script.sh", "#{@solution.id}")
+    loop do
+      break if File.exist?("public/uploads/solution/attachment/#{@solution.id}/javac_end.log")
+    end
+    sh1.system("rm", "-f", "public/uploads/solution/attachment/#{@solution.id}/javac_end.log")
   end
 end

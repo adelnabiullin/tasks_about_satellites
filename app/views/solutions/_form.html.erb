@@ -8,6 +8,6 @@
   <% end %>
   <%= f.submit "Отправить", class: "btn btn-primary" %>
   <% if f.object.errors.any? %>
-    <%= link_to "Отмена", @solution.task, class: "btn btn-inverse" %>
+    <%= link_to "Очистить", @solution.task, class: "btn btn-inverse" %>
   <% end %>
 <% end %>
