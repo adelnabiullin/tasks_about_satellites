@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :solutions, dependent: :destroy
   has_many :tasks, through: :solutions
+  default_scope -> { order('name ASC') }
 
   before_save { email.downcase! }
   before_create :create_remember_token

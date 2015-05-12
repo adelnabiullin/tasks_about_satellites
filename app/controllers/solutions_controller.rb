@@ -13,7 +13,7 @@ class SolutionsController < ApplicationController
         flash[:success] = "Компиляция прошла успешно :)"
         # ..tests
       else
-        flash[:notice] = "Взгляните на ошибки компиляции под исходным кодом."
+        flash[:error] = "Взгляните на ошибки компиляции под исходным кодом."
       end
       # ..etc
       redirect_to @solution

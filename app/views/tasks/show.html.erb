@@ -17,6 +17,24 @@
       <%= @task.content %>
     </p>
   </div>
+  <div class="span12">
+    <div class="row">
+      <div class="span2">
+        <h4>
+          <p>Функция: </p>
+        </h4>
+      </div>
+      <div class="span10">
+        <pre class="formula"><%= @task.formula %></pre>
+      </div>
+    </div>
+  </div>
+  <div class="span12">
+    <!-- input field -->
+  </div>
+  <div class="span12">
+    <!-- outputfield -->
+  </div>
   <div class="span7 offset1">
     <%= render 'solutions/form' %>
   </div>
